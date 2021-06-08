@@ -1,4 +1,6 @@
 from tkinter import*
+from PIL import ImageTk
+from PIL import Image
 
 
 win = Tk()  # 建立視窗
@@ -7,13 +9,17 @@ win.geometry("800x500")
 win.iconbitmap("C:\game\icon.ico")
 win.config(background="#272727")
 
-img = PhotoImage(file="C:\game\icon.png")
+
+def say_hi():
+    print("HI")
 
 
-btn = Button(text="按鈕")
-#btn = tk.Button(bg = "skyblue")
-#btn.config(width=15, height=5)
-btn.config(image=img)
-btn.pack()
+im = Image.open("C:\game\GitHub\python-gui\mirai.png")
+ph = ImageTk.PhotoImage(im)
+
+
+b = Button(text="按鈕", image=ph,)
+b.config(command=say_hi)
+b.pack()
 
 win.mainloop()  # 讓視窗不會消失
